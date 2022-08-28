@@ -55,8 +55,11 @@ document.getElementById('start-btn').onclick = init;
 function init() {
 	document.getElementById('starter-page').style.display = "none";
 	document.getElementById('quiz-page').style.display = "block";
-	interval = setInterval(timerFunc, 1000);
+    
+    timerFunc();
     renderQuestion(questions[0]); //shows the question on the screen
+
+    interval = setInterval(timerFunc, 1000);
 }
 
 function timerFunc(){
@@ -90,6 +93,8 @@ function processSelectedAnswer(clickedAnswer){
 
     if(clickedAnswer.textContent==questions[currentQuestion].correctAnswer){
         score++;
+    } else {
+        time -= 10;
     }
 
 
