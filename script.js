@@ -73,8 +73,6 @@ function timerFunc(){
 
 //quiz-page
 
-
-
 function renderQuestion(question) {
     var answers = question.answers;
     var answersStr = '';
@@ -97,7 +95,6 @@ function processSelectedAnswer(clickedAnswer){
         time -= 10;
     }
 
-
     if (questions.length-1 == currentQuestion){
         endQuiz();
     } else {
@@ -110,23 +107,78 @@ function processSelectedAnswer(clickedAnswer){
 function endQuiz(){
     document.getElementById('quiz-page').style.display = "none";
     document.getElementById('result-page').style.display = "block";
+    
+    var scoreShow = document.getElementById('score-display');
+    scoreShow.textContent = "Your final score is: " + score;
+}
 
-    console.log(score);
+document.getElementById('result-submit').onclick = submitScore;
 
+function submitScore(){
+    var initials = document.getElementById('nameField').value
+     
+    if (initials.length==0) {
+        alert('Please enter your initials');
+    } else { 
+        var lastScore = [
+            {
+                initials: initials,
+                score: score,
+            }
+        ]
+        var existingScores = JSON.parse(window.localStorage.getItem('quizResult')) || [];
+
+        window.localStorage.setItem('quizResult', JSON.stringify(lastScore.concat(existingScores)));
+        document.getElementById('result-page').style.display = "none";
+        document.getElementById('nameField').value = '';
+        resultsPage();
+    }
+}
+
+
+function resultsPage(){
+    var existingScores = JSON.parse(window.localStorage.getItem('quizResult')) || [];
+    
+    var results = '';
+
+    for (var i = 0; i < existingScores.length; i++){
+        results += "<li>" + existingScores[i].initials + " - " + existingScores[i].score + "</li>";
+    } 
+    document.getElementById('resultsList').innerHTML = results;
+    document.getElementById('quiz-result-page').style.display = "block";
 }
 
 
 
 
 
+// const button = document.getElementById('btn');
+// console.log('btn');
+
+// button.onclick = function click() {
+//     console.log('Button clicked');
+// }
+
+// function showConsole() {
+//     console.log('click');
+// }
 
 
+// function myfunc() {
+//     var input = document.getElementById('initialChar');
+//     alert(input.value);
+// } 
 
+// function initialSub(){
 
+//     var initial = localStorage.getItem('nameField');
+// }
 
+// var submitButton = document.querySelector('#btn');
+// submitButton.addEventListener('click', function(event){
+//     event.preventDefault();
 
+//     var initial = document.querySelector('nameField').value;
 
-
-
-
-
+//     localStorage.setItem('nameField', initial);
+// })

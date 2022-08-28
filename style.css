@@ -3,5 +3,9 @@
 }
 
 #result-page{
+    display: none; 
+}
+
+#quiz-result-page{
     display: none;
 }

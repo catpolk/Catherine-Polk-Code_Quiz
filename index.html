@@ -10,7 +10,11 @@
 <body>
     
     <div id="starter-page">
-        <h3>Code quiz</h3>
+        <h3>Coding Quiz Challenge</h3>
+        <p> 
+            Try to answer the following code-relater questions within the time limit. Keep in minnd that incorrect answers will penalize your score/time bt ten seconds!
+        </p>
+
         <button id="start-btn">Quiz Start</button>
     </div>
 
@@ -20,8 +24,18 @@
         <ul id="answerList"></ul>
     </div>
     <div id="result-page">
-      <h4>Result page</h4>
+        <h3> All done!</h3>
+        <p><strong id="score-display"></strong></p>
 
+        <label id="initialChar" for="nameField">Enter initials: </label>
+        <input id="nameField" type="text"> </input>
+      
+        <button type="submit" id="result-submit">Submit</button>
+    </div>
+    <div id="quiz-result-page"> 
+        <h3> High scores</h3>
+        <ul id="resultsList"></ul>
+        <button type="text" id="go-back"> Go Back</button>
     </div>
     <script src="./script.js"></script>
 </body>
