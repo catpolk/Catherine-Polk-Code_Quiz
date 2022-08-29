@@ -1,3 +1,44 @@
+body{
+	font-size: 20px;
+	font-family: sans-serif;
+	color: #333;
+    text-align: center;
+    margin-top: 100px;
+
+}
+
+.container {
+    text-align: left;
+    width: 500px;
+    margin: auto;
+}
+
+#starter-page p {
+    text-align: center;
+}
+
+.btn-cls {
+    background-color: rgb(80, 21, 135);
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 8px;
+    padding: 10px 24px;border: 2px solid #f6f6f6; 
+}
+
+.btn-cls:hover {
+    background-color: #b765c5; 
+    color: white;
+}
+
+ul {
+    list-style-type: none;
+}
+
+
 #quiz-page{
     display: none;
 }
@@ -9,3 +50,8 @@
 #quiz-result-page{
     display: none;
 }
+
+#starter-page h3 {
+    text-align: center;
+}
+

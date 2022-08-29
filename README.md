@@ -1,6 +1,6 @@
 * Catherine-Polk-Code-Quiz
 
-- My motivation was to create an interactive timed quiz that keeps the score and subtracts time from the timer when a user clicks on incorrect answer. 
+-My motivation was to create an interactive timed quiz that keeps the score and subtracts time from the timer when a user clicks on incorrect answer. 
 
 -I built this project to demonstrate my Java Script, HTML, and CSS skills. 
 
@@ -10,9 +10,6 @@
 
 -The project stand out due to its simplicity. 
 
+![Alt a screehshot of a Code-Quiz page] (screenshot.jpeg)
 
-What was your motivation?
-Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-What problem does it solve?
-What did you learn?
-What makes your project stand out?
+

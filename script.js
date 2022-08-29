@@ -49,40 +49,42 @@ var questions = [
 		correctAnswer: "b) for (i = 0; i <= 5; i++)"
    }    
 ]
-
+//the document method returns an element of start-btn property 
 document.getElementById('start-btn').onclick = init;
 
+//function that hide the starter page and shows teh quiz-page
 function init() {
 	document.getElementById('starter-page').style.display = "none";
 	document.getElementById('quiz-page').style.display = "block";
     
-    timerFunc();
+    timerFunc(); //shows the timer on the screen 
     renderQuestion(questions[0]); //shows the question on the screen
 
-    interval = setInterval(timerFunc, 1000);
+    interval = setInterval(timerFunc, 1000);//method setInterval calls a function timerFunc at 1000 milliseconds interval 
 }
 
 function timerFunc(){
 	timerEl.innerText = time;
-	if(time < 0){
+	if(time < 0){ // if statement that checks the time if it is less than 0 it stops the clock by clearInterval
 		clearInterval(interval)
-		endQuiz(); // to display result page.
+		endQuiz(); // displays result page.
 	}
 	time--;
 }
 
 //quiz-page
 
-function renderQuestion(question) {
+function renderQuestion(question) { //function that renders questions and shows answers 
     var answers = question.answers;
     var answersStr = '';
     
     for(var i = 0; i < answers.length; i++){
-        answersStr += "<li><button onclick=\"processSelectedAnswer(this)\" >" + answers[i] + "</button></li>";
+        //answers show as buttons 
+        answersStr += "<li><button class=\"btn-cls\" onclick=\"processSelectedAnswer(this)\" >" + answers[i] + "</button></li>";
     }
 
-    document.getElementById('questionTitle').textContent = question.questionTitle;
-    document.getElementById('answerList').innerHTML = answersStr;
+    document.getElementById('questionTitle').textContent = question.questionTitle; //displayd the questions
+    document.getElementById('answerList').innerHTML = answersStr;//created HTML contend 
 }
 
 
@@ -103,7 +105,7 @@ function processSelectedAnswer(clickedAnswer){
         renderQuestion(questions[currentQuestion]);
     }
 }
-
+//function that hides quiz-page and displays the result-page, and shows the score 
 function endQuiz(){
     document.getElementById('quiz-page').style.display = "none";
     document.getElementById('result-page').style.display = "block";
@@ -111,23 +113,23 @@ function endQuiz(){
     var scoreShow = document.getElementById('score-display');
     scoreShow.textContent = "Your final score is: " + score;
 }
-
+//submit button
 document.getElementById('result-submit').onclick = submitScore;
 
 function submitScore(){
     var initials = document.getElementById('nameField').value
-     
+     //checks if a user entered initials, if not - displays alert message
     if (initials.length==0) {
         alert('Please enter your initials');
     } else { 
-        var lastScore = [
+        var lastScore = [ //an object for initials and score to store 
             {
                 initials: initials,
                 score: score,
             }
         ]
         var existingScores = JSON.parse(window.localStorage.getItem('quizResult')) || [];
-
+        //store initials and score in local storage 
         window.localStorage.setItem('quizResult', JSON.stringify(lastScore.concat(existingScores)));
         document.getElementById('result-page').style.display = "none";
         document.getElementById('nameField').value = '';
@@ -135,7 +137,7 @@ function submitScore(){
     }
 }
 
-
+//takes values from the storage and displays on the screen 
 function resultsPage(){
     var existingScores = JSON.parse(window.localStorage.getItem('quizResult')) || [];
     
@@ -147,38 +149,3 @@ function resultsPage(){
     document.getElementById('resultsList').innerHTML = results;
     document.getElementById('quiz-result-page').style.display = "block";
 }
-
-
-
-
-
-// const button = document.getElementById('btn');
-// console.log('btn');
-
-// button.onclick = function click() {
-//     console.log('Button clicked');
-// }
-
-// function showConsole() {
-//     console.log('click');
-// }
-
-
-// function myfunc() {
-//     var input = document.getElementById('initialChar');
-//     alert(input.value);
-// } 
-
-// function initialSub(){
-
-//     var initial = localStorage.getItem('nameField');
-// }
-
-// var submitButton = document.querySelector('#btn');
-// submitButton.addEventListener('click', function(event){
-//     event.preventDefault();
-
-//     var initial = document.querySelector('nameField').value;
-
-//     localStorage.setItem('nameField', initial);
-// })
