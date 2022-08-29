@@ -10,6 +10,6 @@
 
 -The project stand out due to its simplicity. 
 
-![Alt a screehshot of a Code-Quiz page] (screenshot.jpeg)
+![Alt a screehshot of a Code-Quiz page] (screenshot.jpeg?raw=true)
 
 

@@ -137,7 +137,7 @@ function submitScore(){
     }
 }
 
-//takes values from the storage and displays on the screen 
+//takes values from the storage and displays on the screen
 function resultsPage(){
     var existingScores = JSON.parse(window.localStorage.getItem('quizResult')) || [];
     
